@@ -30,6 +30,13 @@ public class ProductsControllers {
 		return ResponseEntity.ok(list);
 	}
 
+	@GetMapping("/getByName")
+	public ResponseEntity<DataResult<Product>> GetByName( @RequestParam String productName) {
+
+		var list= productService.getByProductName(productName);
+		return ResponseEntity.ok(list);
+	}
+
 
 	@PostMapping("/add")
 	public  ResponseEntity<Result> add(@RequestBody Product product){
